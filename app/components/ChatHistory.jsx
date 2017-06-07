@@ -3,7 +3,7 @@ import React from 'react'
 const ChatHistory = (props) => {
     return (
         <div className="chatHistory">
-            HELLO I AM CHAT HISTORY
+            <h1>{props.talkingTo}</h1>
         </div>
     )
 }

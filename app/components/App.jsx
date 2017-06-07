@@ -8,12 +8,12 @@ const App = () => {
     <Grid>
         <Row>
             <Col sm={6}>
-                <ChatHistory />
-                <NewMessage />
+                <ChatHistory talkingTo={"Laura"}/>
+                <NewMessage name={"Rob"}/>
             </Col>
             <Col sm={6}>
-                <ChatHistory />
-                <NewMessage />
+                <ChatHistory talkingTo={"Rob"}/>
+                <NewMessage name={"Laura"}/>
             </Col>
         </Row>
     </Grid>
