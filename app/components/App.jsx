@@ -8,11 +8,11 @@ const App = () => {
     <Grid>
         <Row>
             <Col sm={6}>
-                <ChatHistory talkingTo={"Laura"}/>
+                <ChatHistory talkingTo={"Laura"} from={"Rob"}/>
                 <NewMessage name={"Rob"}/>
             </Col>
             <Col sm={6}>
-                <ChatHistory talkingTo={"Rob"}/>
+                <ChatHistory talkingTo={"Rob"} from={"Laura"}/>
                 <NewMessage name={"Laura"}/>
             </Col>
         </Row>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {newChat, newSpeaker} from '../reducers/chatReducer.js' 
+import {newChat} from '../reducers/chatReducer.js' 
+import moment from 'moment'
 
  class NewMessage extends Component {
   constructor(props) {
@@ -17,9 +18,9 @@ import {newChat, newSpeaker} from '../reducers/chatReducer.js'
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(`New chat message: ${this.state.value} from ${this.props.name}`);
-    this.props.newSpeaker(this.props.name)
-    this.props.newChat(this.state.value)
+    console.log(`NEW CHAT MESSAGE: ${this.state.value} FROM: ${this.props.name}`);
+    // this.props.newSpeaker(this.props.name)
+    this.props.newChat(this.state.value, this.props.name, moment().format())
     this.setState({value: ""})
   }
 
@@ -36,4 +37,4 @@ import {newChat, newSpeaker} from '../reducers/chatReducer.js'
   }
 }
 
-export default connect(null, {newChat, newSpeaker})(NewMessage)
+export default connect(null, {newChat})(NewMessage)

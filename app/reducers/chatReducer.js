@@ -1,24 +1,23 @@
 const initialState = {
-    chats: [], 
-    speaker: []
+    chats: []
 }
 
 const UPDATE_CHAT = "UPDATE_CHAT"
-const UPDATE_SPEAKER = "UPDATE_SPEAKER"
+// const UPDATE_SPEAKER = "UPDATE_SPEAKER"
 
-export const newChat = (message) => {
+export const newChat = (text, speaker, timestamp) => {
     return {
         type: UPDATE_CHAT,
-        payload: message
+        payload: {text, speaker, timestamp}
     }
 }
 
-export const newSpeaker = (name) => {
-    return {
-        type: UPDATE_SPEAKER,
-        payload: name
-    }
-}
+// export const newSpeaker = (name) => {
+//     return {
+//         type: UPDATE_SPEAKER,
+//         payload: name
+//     }
+// }
 
 export default function chatReducer(state = initialState, action) {
 
@@ -26,12 +25,12 @@ export default function chatReducer(state = initialState, action) {
 
     switch (action.type) {
         case UPDATE_CHAT:
-        newState.chats = [action.payload, ...newState.chats]
+        newState.chats = [...newState.chats, action.payload]
         break;
 
-        case UPDATE_SPEAKER:
-        newState.speaker = [action.payload, ...newState.speaker]
-        break;
+        // case UPDATE_SPEAKER:
+        // newState.speaker = [action.payload, ...newState.speaker]
+        // break;
 
         default:
         return state
