@@ -13,6 +13,7 @@ export function connectMe() {
 export function getMessage() {
     socket.on('store this', function(data) {
         store.dispatch(newChat(data))
+        console.log("receiving id", socket.id)
     })
 }
 
@@ -22,12 +23,12 @@ export function sendMessage(text, speaker, timestamp) {
 }
 
 //Emit an event when I start typing
-export function imTyping() {
-    socket.emit('Im typing')
-}
+// export function imTyping() {
+//     socket.emit('Im typing')
+// }
 
-export function youTyping(cb) {
-    socket.on('youre typing', function() {
-        cb()
-    })
-}
+// export function youTyping(cb) {
+//     socket.on('youre typing', function() {
+//         cb()
+//     })
+// }

@@ -19,7 +19,7 @@ class ChatSpace extends Component {
     componentDidMount() {
         connectMe()
         getMessage()
-        youTyping(this.partnerTyping)
+        // youTyping(this.partnerTyping)
     }
 
     resetState() {
@@ -38,7 +38,7 @@ render() {
         <div>
             <Col sm={6}>
                 <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} partnerIsTyping={this.state.partnerIsTyping} />
-                <NewMessage name={this.props.from} sendMessage={sendMessage} />
+                <NewMessage name={this.props.from} sendMessage={sendMessage} partnerTyping={this.partnerTyping}/>
             </Col>
         </div>
     )

@@ -37,7 +37,9 @@ class ChatHistory extends Component {
                     }
                 </div>
                 <div>
-                    {this.props.partnerIsTyping ? this.props.talkingTo + " is typing..." : null}
+                    {
+                        this.props.talkingTo !== this.props.from && this.props.partnerIsTyping ? this.props.talkingTo + " is typing..." : null
+                    }
                 </div>
             </div>
         )

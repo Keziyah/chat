@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 import moment from 'moment'
-import {imTyping} from './sockets.js'
 
  export default class NewMessage extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ import {imTyping} from './sockets.js'
 
   handleChange(e) {
     this.setState({value: e.target.value});
-    imTyping()
+    this.props.partnerTyping()
   }
 
   handleSubmit(e) {
