@@ -11,6 +11,7 @@ class ChatSpace extends Component {
 
     componentDidMount() {
         connectMe()
+        getMessage()
     }
 
     render() {

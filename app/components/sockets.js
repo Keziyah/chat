@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 import store from '../store'
-// import {newChat} from '../reducers/chatReducer.js' 
+import {newChat} from '../reducers/chatReducer.js' 
 
 
 var socket; 
@@ -10,11 +10,12 @@ export function connectMe() {
 }
 
 //Put all sent messages in the redux store. 
-// export function getMessage() {
-//     socket.on('store this', function(data) {
-//         console.log("MESSAGE YAY", data)
-//     })
-// }
+export function getMessage() {
+    socket.on('store this', function(data) {
+        console.log("MESSAGE YAY", data)
+        store.dispatch(newChat(data))
+    })
+}
 
 //Emit messages from the client to the server
 export function sendMessage(text, speaker, timestamp) {

@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-var server = require('http').createServer(app); 
+var server = require('http').createServer(app);
 var io = require('socket.io')(server)
 
 var path = require('path')
@@ -15,11 +15,16 @@ io.on('connection', function (socket) {
   // socket.emit('new message', { hello: 'world' });
   console.log("connected. socket id", socket.id)
   socket.on('new message', function (data) {
-    console.log("dadaaaa", data)
-    io.emit('store this', data)
+    console.log("dataaaa", data)
+    //If the users were in two different browser windows, I'd use io.emit.
+    //io.emit doesn't work here because both users are sharing the same redux store.
+    socket.broadcast.emit('store this', data)
+  });
+  socket.on('disconnect', function () {
+    console.log('user disconnected', socket.id);
   });
 });
 
-server.listen(3000, function() {
-    console.log("**** View Keziyah's project at localhost:3000. ****")
+server.listen(3000, function () {
+  console.log("**** View Keziyah's project at localhost:3000. ****")
 })
