@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-// import {newChat} from '../reducers/chatReducer.js' 
 import moment from 'moment'
+import {imTyping} from './sockets.js'
 
  export default class NewMessage extends Component {
   constructor(props) {
@@ -14,12 +14,12 @@ import moment from 'moment'
 
   handleChange(e) {
     this.setState({value: e.target.value});
+    imTyping()
   }
 
   handleSubmit(e) {
     e.preventDefault();
     console.log(`NEW CHAT MESSAGE: ${this.state.value} FROM: ${this.props.name}`);
-    // this.props.newChat(this.state.value, this.props.name, moment().format("hh:mm:ss a"))
     this.props.sendMessage(this.state.value, this.props.name, moment().format("hh:mm:ss a"))
     this.setState({value: ""})
   }

@@ -12,19 +12,24 @@ app.get('/*', (req, res, next) => {
 })
 
 io.on('connection', function (socket) {
-  // socket.emit('new message', { hello: 'world' });
   console.log("connected. socket id", socket.id)
+
   socket.on('new message', function (data) {
     console.log("dataaaa", data)
     //If the users were in two different browser windows, I'd use io.emit.
     //io.emit doesn't work here because both users are sharing the same redux store.
     socket.broadcast.emit('store this', data)
   });
+
   socket.on('disconnect', function () {
     console.log('user disconnected', socket.id);
   });
+
+  socket.on('user typing', function() {
+    console.log("hihihihi")
+  })
 });
 
 server.listen(3000, function () {
-  console.log("**** View Keziyah's project at localhost:3000. ****")
+  console.log("**** View Keziyah's project at localhost:3000 ****")
 })

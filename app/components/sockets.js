@@ -21,3 +21,8 @@ export function getMessage() {
 export function sendMessage(text, speaker, timestamp) {
     socket.emit('new message', {text, speaker, timestamp})
 }
+
+//Emit an event when I start typing
+export function imTyping() {
+    socket.emit('user typing')
+}
