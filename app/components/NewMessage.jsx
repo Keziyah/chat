@@ -19,8 +19,7 @@ import moment from 'moment'
   handleSubmit(e) {
     e.preventDefault();
     console.log(`NEW CHAT MESSAGE: ${this.state.value} FROM: ${this.props.name}`);
-    // this.props.newSpeaker(this.props.name)
-    this.props.newChat(this.state.value, this.props.name, moment().format())
+    this.props.newChat(this.state.value, this.props.name, moment().format("hh:mm:ss a"))
     this.setState({value: ""})
   }
 

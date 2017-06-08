@@ -1,4 +1,9 @@
 .chatHistory {
-    min-height: 600px; 
+    min-height: 400px; 
     border: 1px solid saddlebrown; 
+}
+
+.messageList {
+    overflow: auto; 
+    height: 380px; 
 }
