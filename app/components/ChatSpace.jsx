@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Col } from 'react-bootstrap'
 import moment from 'moment'
+import {connect} from 'react-redux'
+import {lauraType, robType} from '../reducers/chatReducer.js'
 import NewMessage from './NewMessage'
 import ChatHistory from './ChatHistory'
 import { EventEmitter } from 'fbemitter'
@@ -35,6 +37,13 @@ class ChatSpace extends Component {
         emitter = new EventEmitter()
         emitter.addListener('other user typing', function(name) {
             console.log("EE chatspace did mount", name)
+            if(name === "Laura") {
+                console.log(lauraType)
+                lauraType()
+            } else {
+                console.log(robType)
+                robType()
+            }
         })
     }
 
@@ -52,4 +61,4 @@ class ChatSpace extends Component {
     }
 }
 
-export default ChatSpace
+export default connect(null, {lauraType, robType})(ChatSpace)
