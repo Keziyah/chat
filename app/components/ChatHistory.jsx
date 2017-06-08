@@ -18,10 +18,6 @@ class ChatHistory extends Component {
         this.scrollToBottom();
     }
 
-    // componentDidMount() {
-    //     this.props.getMessage()
-    // }
-
     render() {
         return (
             <div className="chatHistory">

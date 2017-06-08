@@ -24,5 +24,5 @@ export function sendMessage(text, speaker, timestamp) {
 
 //Emit an event when I start typing
 export function imTyping() {
-    socket.emit('user typing')
+    socket.emit('Im typing')
 }

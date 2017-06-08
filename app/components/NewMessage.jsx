@@ -36,5 +36,3 @@ import {imTyping} from './sockets.js'
     );
   }
 }
-
-// export default connect(null, {newChat})(NewMessage)

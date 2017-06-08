@@ -25,7 +25,7 @@ io.on('connection', function (socket) {
     console.log('user disconnected', socket.id);
   });
 
-  socket.on('user typing', function() {
+  socket.on('Im typing', function() {
     console.log("hihihihi")
   })
 });
