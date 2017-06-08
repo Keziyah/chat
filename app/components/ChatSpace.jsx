@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import NewMessage from './NewMessage'
 import ChatHistory from './ChatHistory'
-import {connectMe, sendMessage, getMessage} from './sockets.js'
+import {connectMe, sendMessage, getMessage, youTyping} from './sockets.js'
 
 class ChatSpace extends Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class ChatSpace extends Component {
     componentDidMount() {
         connectMe()
         getMessage()
+        youTyping()
     }
 
     render() {

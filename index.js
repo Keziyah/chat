@@ -27,6 +27,7 @@ io.on('connection', function (socket) {
 
   socket.on('Im typing', function() {
     console.log("hihihihi")
+    socket.broadcast.emit('youre typing')
   })
 });
 

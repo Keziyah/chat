@@ -12,7 +12,6 @@ export function connectMe() {
 //Put all sent messages in the redux store. 
 export function getMessage() {
     socket.on('store this', function(data) {
-        console.log("MESSAGE YAY", data)
         store.dispatch(newChat(data))
     })
 }
@@ -25,4 +24,10 @@ export function sendMessage(text, speaker, timestamp) {
 //Emit an event when I start typing
 export function imTyping() {
     socket.emit('Im typing')
+}
+
+export function youTyping() {
+    socket.on('youre typing', function() {
+        console.log("youuuuuuu")
+    })
 }
