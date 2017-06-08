@@ -1,48 +1,52 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
+import moment from 'moment'
 import NewMessage from './NewMessage'
 import ChatHistory from './ChatHistory'
-import { connectMe, sendMessage, getMessage, youTyping } from './sockets.js'
+import { EventEmitter } from 'fbemitter'
+var emitter;
+import { connectMe, sendMessage, getMessage } from './sockets.js'
 
 class ChatSpace extends Component {
     constructor(props) {
         super(props)
+        this.state = { value: '' };
 
-        this.state = {
-            partnerIsTyping: false
-        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-        this.partnerTyping = this.partnerTyping.bind(this)
-        this.resetState = this.resetState.bind(this)
+    handleChange(e) {
+        this.setState({ value: e.target.value });
+        emitter.emit('other user typing', this.props.name)
+    }
+
+
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log(`NEW CHAT MESSAGE: ${this.state.value} FROM: ${this.props.from}`);
+        sendMessage(this.state.value, this.props.from, moment().format("hh:mm:ss a"))
+        this.setState({ value: "" })
     }
 
     componentDidMount() {
         connectMe()
         getMessage()
-        // youTyping(this.partnerTyping)
+        emitter = new EventEmitter()
     }
 
-    resetState() {
-        this.setState({ partnerIsTyping: false })
+    render() {
+        return (
+            <div>
+                <Col sm={6}>
+                    <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from}/>
+                    <NewMessage name={this.props.from} 
+                    handleSubmit={this.handleSubmit} value={this.state.value}
+                    handleChange={this.handleChange}/>
+                </Col>
+            </div>
+        )
     }
-
-//Change partnerIsTyping to true, but delay changing it back to false when the user stops typing
-    partnerTyping() {
-        this.setState({ partnerIsTyping: true }, () => {
-            setTimeout(this.resetState, 3000)
-    })
-}
-
-render() {
-    return (
-        <div>
-            <Col sm={6}>
-                <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} partnerIsTyping={this.state.partnerIsTyping} />
-                <NewMessage name={this.props.from} sendMessage={sendMessage} partnerTyping={this.partnerTyping}/>
-            </Col>
-        </div>
-    )
-}
 }
 
 export default ChatSpace
