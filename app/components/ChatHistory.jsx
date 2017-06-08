@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {youTyping} from './sockets.js'
 
 
 class ChatHistory extends Component {
@@ -34,6 +35,9 @@ class ChatHistory extends Component {
                             </p>
                         })
                     }
+                </div>
+                <div>
+                    {this.props.partnerIsTyping ? this.props.talkingTo + " is typing..." : null}
                 </div>
             </div>
         )

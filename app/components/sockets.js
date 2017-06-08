@@ -26,8 +26,8 @@ export function imTyping() {
     socket.emit('Im typing')
 }
 
-export function youTyping() {
+export function youTyping(cb) {
     socket.on('youre typing', function() {
-        console.log("youuuuuuu")
+        cb()
     })
 }
