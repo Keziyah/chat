@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 import moment from 'moment'
 import NewMessage from './NewMessage'
 import ChatHistory from './ChatHistory'
@@ -18,7 +18,7 @@ class ChatSpace extends Component {
 
     handleChange(e) {
         this.setState({ value: e.target.value });
-        emitter.emit('other user typing', this.props.name)
+        emitter.emit('other user typing', this.props.from)
     }
 
 
@@ -33,6 +33,9 @@ class ChatSpace extends Component {
         connectMe()
         getMessage()
         emitter = new EventEmitter()
+        emitter.addListener('other user typing', function(name) {
+            console.log("EE chatspace did mount", name)
+        })
     }
 
     render() {
@@ -40,7 +43,7 @@ class ChatSpace extends Component {
             <div>
                 <Col sm={6}>
                     <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from}/>
-                    <NewMessage name={this.props.from} 
+                    <NewMessage 
                     handleSubmit={this.handleSubmit} value={this.state.value}
                     handleChange={this.handleChange}/>
                 </Col>
