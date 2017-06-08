@@ -4,10 +4,10 @@ const initialState = {
 
 const UPDATE_CHAT = "UPDATE_CHAT"
 
-export const newChat = (text, speaker, timestamp) => {
+export const newChat = (msgData) => {
     return {
         type: UPDATE_CHAT,
-        payload: {text, speaker, timestamp}
+        payload: msgData
     }
 }
 

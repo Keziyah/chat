@@ -12,12 +12,14 @@ app.get('/*', (req, res, next) => {
 })
 
 io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  // socket.emit('new message', { hello: 'world' });
+  console.log("connected. socket id", socket.id)
+  socket.on('new message', function (data) {
+    console.log("dadaaaa", data)
+    io.emit('store this', data)
   });
 });
 
 server.listen(3000, function() {
-    console.log("View Keziyah's project at localhost:3000.")
+    console.log("**** View Keziyah's project at localhost:3000. ****")
 })
