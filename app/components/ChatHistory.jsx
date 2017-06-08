@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import {youTyping} from './sockets.js'
-import {EventEmitter} from 'fbemitter'
 
 class ChatHistory extends Component {
     constructor(props) {
@@ -13,13 +11,6 @@ class ChatHistory extends Component {
         const height = this.messageList.clientHeight;
         const maxScrollTop = scrollHeight - height;
         this.messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
-    }
-
-    componentDidMount() {
-        var emitter = new EventEmitter()
-        emitter.addListener('other user typing', (...args) => {
-            console.log(...args, "DID MOUNT")
-        })
     }
 
     componentDidUpdate() {
