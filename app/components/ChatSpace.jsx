@@ -8,6 +8,7 @@ import ChatHistory from './ChatHistory'
 import { EventEmitter } from 'fbemitter'
 var emitter;
 import { connectMe, sendMessage, getMessage } from './sockets.js'
+import store from '../store'
 
 class ChatSpace extends Component {
     constructor(props) {
@@ -35,14 +36,14 @@ class ChatSpace extends Component {
         connectMe()
         getMessage()
         emitter = new EventEmitter()
-        emitter.addListener('other user typing', function(name) {
+        emitter.addListener('other user typing', (name) => {
             console.log("EE chatspace did mount", name)
             if(name === "Laura") {
                 console.log(lauraType)
-                lauraType()
+                this.props.lauraType()
             } else {
                 console.log(robType)
-                robType()
+                this.props.robType()
             }
         })
     }
