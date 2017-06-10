@@ -13,10 +13,14 @@ import store from '../store'
 class ChatSpace extends Component {
     constructor(props) {
         super(props)
-        this.state = { value: '' };
+        this.state = { 
+            value: '', 
+            partnerIsTyping: false };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.partnerTyping = this.partnerTyping.bind(this); 
+        this.resetState = this.resetState.bind(this)
     }
 
     handleChange(e) {
@@ -32,27 +36,40 @@ class ChatSpace extends Component {
         this.setState({ value: "" })
     }
 
+    resetState() {
+        this.setState({partnerIsTyping: false})
+    }
+
+    partnerTyping() {
+        console.log("hellooooo")
+        this.setState({partnerIsTyping: true}, () => {
+            setTimeout(this.resetState, 3000)
+        })
+    }
+
     componentDidMount() {
         connectMe()
         getMessage()
         emitter = new EventEmitter()
         emitter.addListener('other user typing', (name) => {
             console.log("EE chatspace did mount", name)
-            if(name === "Laura") {
-                console.log(lauraType)
-                this.props.lauraType()
-            } else {
-                console.log(robType)
-                this.props.robType()
-            }
+            // if(name === "Laura") {
+            //     console.log(lauraType)
+            //     this.props.lauraType()
+            // } else {
+            //     console.log(robType)
+            //     this.props.robType()
+            // }
+            this.partnerTyping()
         })
     }
 
     render() {
+        console.log("STATE", this.state)
         return (
             <div>
                 <Col sm={6}>
-                    <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from}/>
+                    <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} partnerTyping={this.state.partnerIsTyping}/>
                     <NewMessage 
                     handleSubmit={this.handleSubmit} value={this.state.value}
                     handleChange={this.handleChange}/>
