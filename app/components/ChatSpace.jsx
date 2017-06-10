@@ -8,7 +8,6 @@ import ChatHistory from './ChatHistory'
 import { EventEmitter } from 'fbemitter'
 var emitter;
 import { connectMe, sendMessage, getMessage } from './sockets.js'
-import store from '../store'
 
 class ChatSpace extends Component {
     constructor(props) {
@@ -19,8 +18,8 @@ class ChatSpace extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.partnerTyping = this.partnerTyping.bind(this); 
-        this.resetState = this.resetState.bind(this)
+        // this.partnerTyping = this.partnerTyping.bind(this); 
+        // this.resetState = this.resetState.bind(this)
     }
 
     handleChange(e) {
@@ -36,16 +35,16 @@ class ChatSpace extends Component {
         this.setState({ value: "" })
     }
 
-    resetState() {
-        this.setState({partnerIsTyping: false})
-    }
+    // resetState() {
+    //     this.setState({partnerIsTyping: false})
+    // }
 
-    partnerTyping() {
-        console.log("hellooooo")
-        this.setState({partnerIsTyping: true}, () => {
-            setTimeout(this.resetState, 3000)
-        })
-    }
+    // partnerTyping() {
+    //     console.log("hellooooo")
+    //     this.setState({partnerIsTyping: true}, () => {
+    //         setTimeout(this.resetState, 3000)
+    //     })
+    // }
 
     componentDidMount() {
         connectMe()
@@ -53,14 +52,12 @@ class ChatSpace extends Component {
         emitter = new EventEmitter()
         emitter.addListener('other user typing', (name) => {
             console.log("EE chatspace did mount", name)
-            // if(name === "Laura") {
-            //     console.log(lauraType)
-            //     this.props.lauraType()
-            // } else {
-            //     console.log(robType)
-            //     this.props.robType()
-            // }
-            this.partnerTyping()
+            if(name === "Laura") {
+                this.props.lauraType(true)
+            } else {
+                this.props.robType(true)
+            }
+            // this.partnerTyping()
         })
     }
 
@@ -69,7 +66,7 @@ class ChatSpace extends Component {
         return (
             <div>
                 <Col sm={6}>
-                    <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} partnerTyping={this.state.partnerIsTyping}/>
+                    <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} />
                     <NewMessage 
                     handleSubmit={this.handleSubmit} value={this.state.value}
                     handleChange={this.handleChange}/>

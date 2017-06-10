@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {lauraType, robType} from '../reducers/chatReducer.js'
 
 class ChatHistory extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {partnerIsTyping: false}
+
+        this.partnerTyping = this.partnerTyping.bind(this); 
+        this.resetState = this.resetState.bind(this)
     }
 
     scrollToBottom() {
@@ -15,6 +21,30 @@ class ChatHistory extends Component {
 
     componentDidUpdate() {
         this.scrollToBottom();
+    }
+
+    componentWillReceiveProps() {
+        if (this.props.talkingTo === "Laura" && this.props.chat.LauraTyping[0]) {
+            this.partnerTyping()
+        } else if (this.props.talkingTo == "Rob" && this.props.chat.RobTyping[0]) {
+            this.partnerTyping()
+        }
+    }
+
+    partnerTyping() {
+        console.log("hellooooo")
+        this.setState({partnerIsTyping: true}, () => {
+            setTimeout(this.resetState, 3000)
+        })
+    }
+
+    resetState() {
+        this.setState({partnerIsTyping: false})
+        if (this.props.talkingTo === "Laura") {
+            this.props.lauraType(false)
+        } else if (this.props.talkingTo === "Rob") {
+            this.props.robType(false)
+        }
     }
 
     render() {
@@ -36,7 +66,7 @@ class ChatHistory extends Component {
                 </div>
                 <div>
                     {
-                        this.props.partnerIsTyping ? this.props.talkingTo + " is typing..." : null 
+                        this.state.partnerIsTyping ? this.props.talkingTo + " is typing..." : null 
                     }
                 </div>
             </div>
@@ -45,4 +75,4 @@ class ChatHistory extends Component {
 }
 
 const mapState = ({ chat }) => ({ chat })
-export default connect(mapState, null)(ChatHistory)
+export default connect(mapState, {lauraType, robType})(ChatHistory)

@@ -15,18 +15,18 @@ export const newChat = (msgData) => {
     }
 }
 
-export const lauraType = () => {
+export const lauraType = (bool) => {
     return {
         type: UPDATE_LAURA, 
-        payload: "im laura"
+        payload: bool
     }
 }
 
 
-export const robType = () => {
+export const robType = (bool) => {
     return {
         type: UPDATE_ROB, 
-        payload: "im rob"
+        payload: bool
     }
 }
 
@@ -40,13 +40,13 @@ export default function chatReducer(state = initialState, action) {
         break;
 
         case UPDATE_LAURA: 
-        var lastEle = newState.LauraTyping[newState.LauraTyping.length - 1]
-        newState.LauraTyping = [...newState.LauraTyping, action.payload]
+        // var lastEle = newState.LauraTyping[newState.LauraTyping.length - 1]
+        newState.LauraTyping = [action.payload, ...newState.LauraTyping]
         break; 
 
         case UPDATE_ROB: 
-        var lastElem = newState.RobTyping[newState.RobTyping.length - 1]
-        newState.RobTyping = [...newState.RobTyping, action.payload]
+        // var lastElem = newState.RobTyping[newState.RobTyping.length - 1]
+        newState.RobTyping = [action.payload, ...newState.RobTyping]
         break; 
 
         default:
