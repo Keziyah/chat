@@ -36,7 +36,7 @@ class ChatHistory extends Component {
     //If my partner is typing, set the state to true, which renders "... is typing". After a few seconds, set the state to false.
     partnerTyping() {
         this.setState({partnerIsTyping: true}, () => {
-            setTimeout(this.resetState, 3000)
+            setTimeout(this.resetState, 2000)
         })
     }
 
