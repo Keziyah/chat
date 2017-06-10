@@ -40,12 +40,10 @@ export default function chatReducer(state = initialState, action) {
         break;
 
         case UPDATE_LAURA: 
-        // var lastEle = newState.LauraTyping[newState.LauraTyping.length - 1]
         newState.LauraTyping = [action.payload, ...newState.LauraTyping]
         break; 
 
         case UPDATE_ROB: 
-        // var lastElem = newState.RobTyping[newState.RobTyping.length - 1]
         newState.RobTyping = [action.payload, ...newState.RobTyping]
         break; 
 

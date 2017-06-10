@@ -32,7 +32,6 @@ class ChatHistory extends Component {
     }
 
     partnerTyping() {
-        console.log("hellooooo")
         this.setState({partnerIsTyping: true}, () => {
             setTimeout(this.resetState, 3000)
         })

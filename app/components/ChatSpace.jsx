@@ -18,8 +18,6 @@ class ChatSpace extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.partnerTyping = this.partnerTyping.bind(this); 
-        // this.resetState = this.resetState.bind(this)
     }
 
     handleChange(e) {
@@ -30,39 +28,24 @@ class ChatSpace extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(`NEW CHAT MESSAGE: ${this.state.value} FROM: ${this.props.from}`);
         sendMessage(this.state.value, this.props.from, moment().format("hh:mm:ss a"))
         this.setState({ value: "" })
     }
-
-    // resetState() {
-    //     this.setState({partnerIsTyping: false})
-    // }
-
-    // partnerTyping() {
-    //     console.log("hellooooo")
-    //     this.setState({partnerIsTyping: true}, () => {
-    //         setTimeout(this.resetState, 3000)
-    //     })
-    // }
 
     componentDidMount() {
         connectMe()
         getMessage()
         emitter = new EventEmitter()
         emitter.addListener('other user typing', (name) => {
-            console.log("EE chatspace did mount", name)
             if(name === "Laura") {
                 this.props.lauraType(true)
             } else {
                 this.props.robType(true)
             }
-            // this.partnerTyping()
         })
     }
 
     render() {
-        console.log("STATE", this.state)
         return (
             <div>
                 <Col sm={6}>
