@@ -19,10 +19,12 @@ class ChatHistory extends Component {
         this.messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
     }
 
+    //Keep the chat window scrolled to the bottom
     componentDidUpdate() {
         this.scrollToBottom();
     }
 
+    //Change the state only if the person I'm talking to is typing. 
     componentWillReceiveProps() {
         if (this.props.talkingTo === "Laura" && this.props.chat.LauraTyping[0]) {
             this.partnerTyping()
@@ -31,12 +33,14 @@ class ChatHistory extends Component {
         }
     }
 
+    //If my partner is typing, set the state to true, which renders "... is typing". After a few seconds, set the state to false.
     partnerTyping() {
         this.setState({partnerIsTyping: true}, () => {
             setTimeout(this.resetState, 3000)
         })
     }
 
+    //When they finish typing, set the state to false, and update the redux store to show they are no longer typing. 
     resetState() {
         this.setState({partnerIsTyping: false})
         if (this.props.talkingTo === "Laura") {
@@ -51,10 +55,10 @@ class ChatHistory extends Component {
             <div className="chatHistory">
                 <h1>{this.props.talkingTo}</h1>
                 <div className="messageList" 
-                    ref={(div) => {
+                    ref={(div) => {          //for scrollToBottom
                     this.messageList = div;
                 }}>
-                    {
+                    {  //Display all the chats with their timestamps
                         this.props.chat.chats.map((message, i) => {
                             return <p key={i}
                                 className={message.speaker === this.props.talkingTo ? "text-left" : "text-right"}>
@@ -64,7 +68,7 @@ class ChatHistory extends Component {
                     }
                 </div>
                 <div>
-                    {
+                    {    //Display ...is typing message if my partner is typing
                         this.state.partnerIsTyping ? this.props.talkingTo + " is typing..." : null 
                     }
                 </div>

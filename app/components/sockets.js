@@ -22,13 +22,20 @@ export function sendMessage(text, speaker, timestamp) {
     socket.emit('new message', {text, speaker, timestamp})
 }
 
-//Emit an event when I start typing
+//************************************************ */
+// IF THE USERS WERE IN DIFFERENT CHAT WINDOWS:
+
+//Emit an event when I start typing 
+
 // export function imTyping() {
 //     socket.emit('Im typing')
 // }
+
+//Listen for when the other user is typing
 
 // export function youTyping(cb) {
 //     socket.on('youre typing', function() {
 //         cb()
 //     })
 // }
+//************************************************ */

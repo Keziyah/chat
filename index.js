@@ -13,17 +13,17 @@ app.get('/*', (req, res, next) => {
 
 
 io.on('connection', function (socket) {
-  console.log("connected. socket id", socket.id)
+  console.log("NEW SOCKET ", socket.id, " CONNECTED")
 
   socket.on('new message', function (data) {
-    console.log("dataaaa", data, "socket ID", socket.id)
+    console.log("NEW CHAT", data, "FROM", socket.id)
 
     //If the users were in two different browser windows, I'd use io.emit.
     socket.broadcast.emit('store this', data)
   });
 
   socket.on('disconnect', function () {
-    console.log('user disconnected', socket.id);
+    console.log("SOCKET ", socket.id, "DISCONNECTED");
   });
   
 //If the users were not sharing the same socket, this is how I would show when someone is typing
