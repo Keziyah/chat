@@ -53,24 +53,29 @@ class ChatHistory extends Component {
     render() {
         return (
             <div className="chatHistory">
-                <h1>{this.props.talkingTo}</h1>
+                <div className="chat-header">
+                    <h1 className="text-center">{this.props.talkingTo}</h1>
+                </div>
+                <div className="history-container">
                 <div className="messageList" 
                     ref={(div) => {          //for scrollToBottom
                     this.messageList = div;
                 }}>
                     {  //Display all the chats with their timestamps
                         this.props.chat.chats.map((message, i) => {
-                            return <p key={i}
-                                className={message.speaker === this.props.talkingTo ? "text-left" : "text-right"}>
-                                {message.text} <span className="timestamp">{message.timestamp}</span>
-                            </p>
+                            return <div key={i}
+                                className={message.speaker === this.props.talkingTo ? "text-left incoming" : "text-right outgoing"}>
+                                <p className="message">{message.text} <span className="timestamp">{message.timestamp}</span>
+                                </p>
+                            </div>
                         })
                     }
                 </div>
-                <div>
+                <div className="isTyping">
                     {    //Display ...is typing message if my partner is typing
                         this.state.partnerIsTyping ? this.props.talkingTo + " is typing..." : null 
                     }
+                </div>
                 </div>
             </div>
         )
