@@ -56,7 +56,7 @@ class ChatSpace extends Component {
                     <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} />
                     <NewMessage 
                     handleSubmit={this.handleSubmit} value={this.state.value}
-                    handleChange={this.handleChange}/>
+                    handleChange={this.handleChange} talkingTo={this.props.talkingTo}/>
                 </Col>
             </div>
         )

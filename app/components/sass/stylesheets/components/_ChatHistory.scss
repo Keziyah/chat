@@ -1,7 +1,12 @@
 .chatHistory {
     height: 40em; 
     border: 0.5px solid #BFC2BF; 
-    background: #e1e7f2;
+
+    background: #e1e7f2; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #e1e7f2, #69B2D2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #e1e7f2, #69B2D2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #e1e7f2, #69B2D2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #e1e7f2, #69B2D2); /* Standard syntax */
 }
 
 .messageList {
@@ -20,6 +25,7 @@
     border-radius: 15%; 
     margin-bottom: 5px; 
     min-height: 3em; 
+    box-shadow: 7px 5px 3px #888888;
 
     span {
         font-size: 8px; 
@@ -37,6 +43,7 @@
          img {
             border-radius: 50%; 
             display: inline-block; 
+            box-shadow: 2px 2px 1px #888888; 
         }
     }
 }

@@ -19,6 +19,7 @@
 
         .partnerName {
             font-size: 3em; 
+            font-weight: 700; 
             display: inline-block; 
             margin-right: 3%; 
             width: 100px; 
@@ -48,12 +49,10 @@
 }
 
 //TODO
-//change header color maybe
 //change bubble backgorund color
 //try using react key generator
 //look into immutable.js for redux
 //add linear gradient to backgrounds
 //add box shadows to chat bubbles, chat header, chat space
 //make site responsive
-//look into fonts for header, messages, and timestamp
 //fix problem with input clearing if both chat at the same time
