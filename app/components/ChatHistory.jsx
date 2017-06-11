@@ -57,9 +57,9 @@ class ChatHistory extends Component {
                 <div className="chat-header">
                      <span className="mdl-list__item-primary-content">
                         <i className="material-icons mdl-list__item-avatar">person</i>
-                        <span className="partnerName">{this.props.talkingTo}</span>
+                        <div className="partnerName"><span >{this.props.talkingTo}</span></div>
                          <span className="mdl-list__item-sub-title">Active just now</span>
-                        <Glyphicon glyph="cog" />
+                        <div className="cog"><Glyphicon glyph="cog" /></div>
                         </span>
                 </div>
                 <div className="history-container">

@@ -13,15 +13,31 @@
 
         .partnerName {
             font-size: 3em; 
+            display: inline-block; 
             margin-right: 3%; 
+            width: 100px; 
+
+            span {
+                position: relative; 
+                bottom: 5px; 
+            }
         }
 
         .mdl-list__item-sub-title {
             color: #b0b1b2; 
+            text-align: center; 
+            position: relative; 
+            bottom: 7px; 
         }
     }
-    .glyphicon .glyphicon-cog{
-        margin-left: 30%; 
+
+    .cog {
+        display: inline-block; 
+        // margin-left: 30%;
+        position: relative; 
+        right: -3em; 
+        bottom: 10px; 
+        font-size: 25px; 
     }
 
 }
@@ -34,3 +50,4 @@
 //look into immutable.js for redux
 //add margin to top level component
 //make site responsive
+//make sure you can't send an empty message
