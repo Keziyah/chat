@@ -1,14 +1,12 @@
 import React from 'react'
+import {Glyphicon} from 'react-bootstrap'
 
  const NewMessage = (props) => {
 
     return (
       <form onSubmit={props.handleSubmit}>
-        <label>
-          New Message:
-          <input type="text" value={props.value} onChange={props.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+          <Glyphicon glyph="paperclip" /><input type="text" id="type-message" placeholder="Type a message" value={props.value} onChange={props.handleChange} />
+        <input type="submit" value="SEND" />
       </form>
     );
   }

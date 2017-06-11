@@ -1,0 +1,32 @@
+    #type-message {
+        padding-left: 1em;
+        width: 38em; 
+        height: 3em; 
+        border: none; 
+        font-size: 1em; 
+
+        &:focus {
+            outline: none; 
+        }
+    }
+
+    input[type="submit"] {
+        height: 3em; 
+        border: none; 
+        background: none; 
+
+        &:hover {
+            background-color: #D6ECEF; 
+            border-radius: 40%; 
+        }
+    }
+
+    form {
+        border: 0.5px solid #BFC2BF; 
+
+        .glyphicon.glyphicon-paperclip {
+            margin-left: 2%; 
+            margin-top: 2%; 
+            font-size: 1.3em; 
+        }
+    }
