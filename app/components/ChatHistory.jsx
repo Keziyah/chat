@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {Glyphicon} from 'react-bootstrap'
 import {lauraType, robType} from '../reducers/chatReducer.js'
 
 class ChatHistory extends Component {
@@ -54,7 +55,12 @@ class ChatHistory extends Component {
         return (
             <div className="chatHistory">
                 <div className="chat-header">
-                    <h1 className="text-center">{this.props.talkingTo}</h1>
+                     <span className="mdl-list__item-primary-content">
+                        <i className="material-icons mdl-list__item-avatar">person</i>
+                        <span className="partnerName">{this.props.talkingTo}</span>
+                         <span className="mdl-list__item-sub-title">Active just now</span>
+                        <Glyphicon glyph="cog" />
+                        </span>
                 </div>
                 <div className="history-container">
                 <div className="messageList" 

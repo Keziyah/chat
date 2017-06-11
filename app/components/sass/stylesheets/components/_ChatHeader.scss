@@ -1,0 +1,36 @@
+.chat-header {
+    height: 4em; 
+    background: #fff;
+
+    .mdl-list__item-primary-content  {
+        margin-left: 3%; 
+        width: 100%; 
+
+        i {
+            margin-right: 11%; 
+            margin-top: 1%; 
+        }
+
+        .partnerName {
+            font-size: 3em; 
+            margin-right: 3%; 
+        }
+
+        .mdl-list__item-sub-title {
+            color: #b0b1b2; 
+        }
+    }
+    .glyphicon .glyphicon-cog{
+        margin-left: 30%; 
+    }
+
+}
+
+//TODO
+//Fix glyphicon cog
+//change header color maybe
+//add padding to top of message content
+//try using react key generator
+//look into immutable.js for redux
+//add margin to top level component
+//make site responsive
