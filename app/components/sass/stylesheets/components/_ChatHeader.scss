@@ -1,6 +1,7 @@
 .chat-header {
     height: 4em; 
     background: #fff;
+    box-shadow: 0 3px 4px #888888; 
 
     .mdl-list__item-primary-content  {
         margin-left: 3%; 
@@ -49,10 +50,6 @@
 }
 
 //TODO
-//change bubble backgorund color
 //try using react key generator
 //look into immutable.js for redux
-//add linear gradient to backgrounds
-//add box shadows to chat bubbles, chat header, chat space
 //make site responsive
-//fix problem with input clearing if both chat at the same time

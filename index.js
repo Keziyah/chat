@@ -26,7 +26,7 @@ io.on('connection', function (socket) {
     console.log("SOCKET ", socket.id, "DISCONNECTED");
   });
   
-//If the users were not sharing the same socket, this is how I would show when someone is typing
+//If the users were in different windows, this is how I would show when someone is typing
 
   // socket.on('Im typing', function() {
   //   socket.broadcast.emit('youre typing')

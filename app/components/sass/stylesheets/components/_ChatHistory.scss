@@ -19,6 +19,16 @@
     margin-bottom: 0; 
 }
 
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1; 
+    }
+}
+
 .message {
     display: table; 
     max-width: 85%; 
@@ -26,6 +36,7 @@
     margin-bottom: 5px; 
     min-height: 3em; 
     box-shadow: 7px 5px 3px #888888;
+    animation: fade 1s ease-out 0s 1; 
 
     span {
         font-size: 8px; 
@@ -49,12 +60,12 @@
 }
 
 .incoming {
-    background: #FDF8E5; 
+    background: #628799; 
     margin-left: 10%; 
 }
 
 .outgoing {
-    background: #94B4E8; 
+    background: #D7E6F3; 
     margin-left: 50%;
     margin-right: 4%;  
 }

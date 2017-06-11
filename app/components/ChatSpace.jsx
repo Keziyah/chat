@@ -51,7 +51,7 @@ class ChatSpace extends Component {
 
     render() {
         return (
-            <div>
+            <div className="chat-space">
                 <Col sm={6}>
                     <ChatHistory talkingTo={this.props.talkingTo} from={this.props.from} />
                     <NewMessage 
