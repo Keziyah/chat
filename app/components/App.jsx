@@ -6,8 +6,8 @@ require("!style-loader!css-loader!sass-loader!./sass/stylesheets/main.scss");
 
 const App = () => {
     return (
-    <Grid>
-        <Row>
+    <Grid >
+        <Row className="container">
             <ChatSpace talkingTo={"Laura"} from={"Rob"} />
             <ChatSpace talkingTo={"Rob"} from={"Laura"} />
         </Row>

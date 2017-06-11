@@ -6,9 +6,15 @@
         margin-left: 3%; 
         width: 100%; 
 
-        i {
-            margin-right: 11%; 
-            margin-top: 1%; 
+        .header-img {
+            display: inline-block; 
+            width: 60px; 
+            position: relative; 
+            bottom: 12px; 
+
+            img {
+            border-radius: 50%; 
+            }
         }
 
         .partnerName {
@@ -19,7 +25,7 @@
 
             span {
                 position: relative; 
-                bottom: 5px; 
+                bottom: 2px; 
             }
         }
 
@@ -27,27 +33,29 @@
             color: #b0b1b2; 
             text-align: center; 
             position: relative; 
-            bottom: 7px; 
+            bottom: 5px; 
         }
     }
 
     .cog {
         display: inline-block; 
-        // margin-left: 30%;
         position: relative; 
-        right: -3em; 
-        bottom: 10px; 
+        right: -2em; 
+        bottom: 4px; 
         font-size: 25px; 
     }
 
 }
 
 //TODO
-//Fix glyphicon cog
 //change header color maybe
-//add padding to top of message content
+//style istyping message
+//spacing between avatar and text (relative positioning)
+//add avatar to header
 //try using react key generator
 //look into immutable.js for redux
-//add margin to top level component
+//add linear gradient to backgrounds
+//add box shadows to chat bubbles, chat header, chat space
+//put timestamp on new line
 //make site responsive
 //make sure you can't send an empty message
