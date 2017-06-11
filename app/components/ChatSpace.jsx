@@ -30,7 +30,8 @@ class ChatSpace extends Component {
     //When I submit my message, send it to the redux store and clear the input box
     handleSubmit(e) {
         e.preventDefault();
-        sendMessage(this.state.value, this.props.from, moment().format("hh:mm:ss a"))
+        var imgURL = "images/" + this.props.from + ".png"
+        sendMessage(this.state.value, this.props.from, moment().format("hh:mm:ss a"), imgURL)
         this.setState({ value: "" })
     }
 

@@ -18,8 +18,8 @@ export function getMessage() {
 }
 
 //Emit messages from the client to the server
-export function sendMessage(text, speaker, timestamp) {
-    socket.emit('new message', {text, speaker, timestamp})
+export function sendMessage(text, speaker, timestamp, imgURL) {
+    socket.emit('new message', {text, speaker, timestamp, imgURL})
 }
 
 //************************************************ */
