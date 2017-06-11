@@ -18,32 +18,44 @@
     display: table; 
     max-width: 85%; 
     border-radius: 15%; 
-    margin-bottom: 2%; 
-    padding: 3 3% 0 2%; 
+    margin-bottom: 5px; 
     min-height: 3em; 
 
     span {
         font-size: 8px; 
+        display:table; 
     }
 
     div {
         display: inline-block; 
-        img {
+    }
+
+    .avatar {
+        position: relative; 
+        right: 40px; 
+
+         img {
             border-radius: 50%; 
             display: inline-block; 
-            margin-right: 5%; 
-            margin-top: 5%; 
         }
     }
 }
 
 .incoming {
     background: #FDF8E5; 
-    margin-left: 5%; 
+    margin-left: 10%; 
 }
 
 .outgoing {
     background: #94B4E8; 
     margin-left: 50%;
     margin-right: 4%;  
+}
+
+.isTyping {
+    margin-left: 5%; 
+    font-style: italic; 
+    img {
+        border-radius: 50%; 
+    }
 }

@@ -31,7 +31,7 @@ class ChatSpace extends Component {
     handleSubmit(e) {
         e.preventDefault();
         var imgURL = "images/" + this.props.from + ".png"
-        sendMessage(this.state.value, this.props.from, moment().format("hh:mm:ss a"), imgURL)
+        sendMessage(this.state.value, this.props.from, moment().format("hh:mm a"), imgURL)
         this.setState({ value: "" })
     }
 

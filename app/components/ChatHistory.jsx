@@ -72,8 +72,8 @@ class ChatHistory extends Component {
                             return (
                             <div key={i}
                                 className={message.speaker === this.props.talkingTo ? "incoming message" : "outgoing message"}>
-                            <div><img src={message.imgURL}/></div>
-                            <div>
+                            <div className="avatar"><img src={message.imgURL}/></div>
+                            <div className="text-div">
                                 <p>{message.text} <span className="timestamp">{message.timestamp}</span>
                                 </p>
                             </div>
@@ -84,7 +84,7 @@ class ChatHistory extends Component {
                 </div>
                 <div className="isTyping">
                     {    //Display ...is typing message if my partner is typing
-                        this.state.partnerIsTyping ? this.props.talkingTo + " is typing..." : null 
+                        this.state.partnerIsTyping ? <div className="avatar"><img src={`images/${this.props.talkingTo}.png`}/> is typing...</div> : null 
                     }
                 </div>
                 </div>
