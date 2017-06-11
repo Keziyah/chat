@@ -64,8 +64,8 @@ class ChatHistory extends Component {
                     {  //Display all the chats with their timestamps
                         this.props.chat.chats.map((message, i) => {
                             return <div key={i}
-                                className={message.speaker === this.props.talkingTo ? "text-left incoming" : "text-right outgoing"}>
-                                <p className="message">{message.text} <span className="timestamp">{message.timestamp}</span>
+                                className={message.speaker === this.props.talkingTo ? "incoming message" : "outgoing message"}>
+                                <p>{message.text} <span className="timestamp">{message.timestamp}</span>
                                 </p>
                             </div>
                         })

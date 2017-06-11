@@ -17,13 +17,24 @@
 }
 
 .message {
-    display: inline-block; 
+    display: table; 
+    max-width: 75%; 
+    border-radius: 10%; 
+    margin-bottom: 2%; 
+    padding: 0 3% 0 3%; 
+
+    span {
+        font-size: 8px; 
+    }
 }
 
 .incoming {
     background: #FDF8E5; 
+    margin-left: 5%; 
 }
 
 .outgoing {
     background: #D6EFF2; 
+    margin-left: 50%;
+    margin-right: 4%;  
 }
