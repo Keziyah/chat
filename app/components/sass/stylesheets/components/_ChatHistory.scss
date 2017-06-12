@@ -35,7 +35,7 @@
     border-radius: 15%; 
     margin-bottom: 5px; 
     min-height: 3em; 
-    box-shadow: 7px 5px 3px #888888;
+    box-shadow: 5px 5px 3px #888888;
     animation: fade 1s ease-out 0s 1; 
 
     span {
@@ -77,3 +77,8 @@
         border-radius: 50%; 
     }
 }
+
+//TODO
+//try using react key generator
+//look into immutable.js for redux
+
