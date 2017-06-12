@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Col } from 'react-bootstrap'
 import moment from 'moment'
+import shortid from 'shortid'; 
 import {connect} from 'react-redux'
 import { EventEmitter } from 'fbemitter'
 import {lauraType, robType} from '../reducers/chatReducer.js'
@@ -31,7 +32,7 @@ class ChatSpace extends Component {
     handleSubmit(e) {
         e.preventDefault();
         var imgURL = "images/" + this.props.from + ".png"
-        sendMessage(this.state.value, this.props.from, moment().format("hh:mm a"), imgURL)
+        sendMessage(this.state.value, this.props.from, moment().format("hh:mm a"), imgURL, shortid.generate())
         this.setState({ value: "" })
     }
 

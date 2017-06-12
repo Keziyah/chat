@@ -8,8 +8,8 @@ const App = () => {
     return (
     <Grid >
         <Row className="container">
-            <ChatSpace talkingTo={"Laura"} from={"Rob"} />
             <ChatSpace talkingTo={"Rob"} from={"Laura"} />
+            <ChatSpace talkingTo={"Laura"} from={"Rob"} />
         </Row>
     </Grid>
     )
