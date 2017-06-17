@@ -2,3 +2,5 @@ node_modules
 bundle.js
 bundle.js.map
 instructions.txt
+commit-history.md
+README.md
